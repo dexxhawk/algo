@@ -64,7 +64,7 @@ ___
 ![](/img/set2.jpg)
 
 <details>
-<summary>Собственная реализация:
+<summary>Собственная реализация:</summary>
 
 ```py
 setsize = 10
@@ -88,7 +88,9 @@ def delete(x):
             xlist.pop()
             return 
 ```
+
 </details>
+
 
 ![](/img/set3.jpg)
 ![](/img/set4.jpg)
