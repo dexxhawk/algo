@@ -13,19 +13,18 @@ def extract():
     heap.pop()
 
     pos = 0
-    while 2 * pos + 2 < len(heap):
-        if heap[2 * pos + 1] > heap[2 * pos + 2]:
-            max_son_idx = 2 * pos + 1
-        else:
+    while 2 * pos + 1 < len(heap):
+        #Choosing max son:
+        max_son_idx = 2 * pos + 1
+        if 2 * pos + 2 < len(heap) and heap[2 * pos + 2] > heap[max_son_idx]:
             max_son_idx = 2 * pos + 2
+        
         if heap[pos] < heap[max_son_idx]:
             heap[pos], heap[max_son_idx] =\
                 heap[max_son_idx], heap[pos]
             pos = max_son_idx
         else:
             break
-    if 2 * pos + 1 < len(heap) and heap[pos] < heap[2 * pos + 1]:
-        heap[pos], heap[2 * pos + 1] = heap[2 * pos + 1], heap[pos]
     return ans
 # Можно сразу pop-нуть последний элемент, тогда если он останется, то возможны случаи:
 # 1) в самом низу будет либо 2 листа, с собой мы элемент не поменяем => после while ничего не требуется

@@ -12,20 +12,20 @@ def extract():
     heap[0] = heap[-1]
     heap.pop()
 
+    #Siftdown:
     pos = 0
-    while 2 * pos + 2 < len(heap):
-        if heap[2 * pos + 1] < heap[2 * pos + 2]:
-            min_son_idx = 2 * pos + 1
-        else:
+    while 2 * pos + 1 < len(heap):
+        #Choosing min son:
+        min_son_idx = 2 * pos + 1
+        if 2 * pos + 2 < len(heap) and heap[2 * pos + 2] < heap[min_son_idx]:
             min_son_idx = 2 * pos + 2
+
         if heap[pos] > heap[min_son_idx]:
             heap[pos], heap[min_son_idx] =\
                 heap[min_son_idx], heap[pos]
             pos = min_son_idx
         else:
             break
-    if 2 * pos + 1 < len(heap) and heap[pos] > heap[2 * pos + 1]:
-        heap[pos], heap[2 * pos + 1] = heap[2 * pos + 1], heap[pos]
     return ans
 # Можно сразу pop-нуть последний элемент, тогда если он останется, то возможны случаи:
 # 1) в самом низу будет либо 2 листа, с собой мы элемент не поменяем => после while ничего не требуется
